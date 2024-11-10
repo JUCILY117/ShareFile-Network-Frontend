@@ -1,0 +1,150 @@
+.login-page {
+  font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #2f2f2f;
+    background-image:url('../../assets/authscreen.png');
+    background-size: cover;
+    height: 88vh;
+    flex-direction: column;
+  }
+  .login-page h1{
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    background-color: #f7f7f7;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(226, 223, 223, 0.603);
+    height: 35em;
+    margin-bottom: 7em;
+  }
+
+  .login-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 1em;
+  }
+  
+  .login-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 13px;
+    padding-left: 1em;
+    outline: none;
+  }
+
+  
+  .login-form button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 1em 0;
+  }
+  
+  .login-form button:hover {
+    background-color: #2f2f2f63;
+  }
+  
+  .login-form p {
+    margin-top: 1em;
+    text-align: center;
+  }
+  
+  .login-form a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .checkbox-container{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: left;
+    gap: 0.5em;
+  }
+
+  .password-input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 13px;
+    padding-left: 0.5em;
+    background-color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .password-input-wrapper input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 13px 0 0 13px;
+  }
+  
+  .password-toggle-icon {
+    padding-right: 12px;
+    cursor: pointer;
+    color: #000;
+    font-size: 16px;
+    opacity: 0.5;
+  }
+  
+  .password-toggle-icon:hover {
+    color: #000;
+    opacity: 1;
+  }
+  
+
+
+  @media (max-width: 768px){
+    .login-page{
+      width: 100%;
+      background-image: none;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .login-page h1{
+      font-size: 2.6em;
+      text-align: center;
+      margin: 0.5em 0;
+    }
+    .login-page p{
+      font-size: 0.8em;
+    }
+    .login-form{
+      height: auto;
+      display: flex;
+      justify-content: center;
+    }
+    .login-form label{
+      font-size: 0.8em;
+    }
+    .password-input-wrapper input {
+      font-size: 0.8rem;
+      padding-left: 0.3rem;
+    }
+    
+  }

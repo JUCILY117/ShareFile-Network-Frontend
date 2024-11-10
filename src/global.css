@@ -1,0 +1,10 @@
+.wrapper {
+    transform-origin: top right;
+  }
+  
+  @media (min-resolution: 1.25dppx) {
+    .wrapper {
+      transform: scale(0.9); /* Scale down to 80% */
+      transform-origin: center; /* Ensure scaling starts from the top-left corner */
+    }
+  }

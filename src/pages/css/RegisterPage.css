@@ -1,0 +1,132 @@
+.register-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2f2f2f;
+    background-image:url('../../assets/authscreen.png');
+    background-size: cover;
+    height: auto;
+    min-height: 90vh;
+    flex-direction: column;
+  }
+  .register-page h1{
+    color: #fff;
+    font-size: 4em;
+    margin-top: 0.7em;
+    margin-bottom: 1em;
+  }
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    padding:50px;
+    box-shadow: 0 0 10px rgba(226, 223, 223, 0.603);
+    margin-left: 1em;
+    height: 40vh;
+  }
+  
+  .register-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .register-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .register-form .name-input,
+  .register-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 13px;
+    padding-left: 1em;
+    outline:none;
+  }
+  
+  .register-form button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .register-form button:hover {
+    background-color: #2f2f2f69;
+  }
+  
+  .register-form p {
+    margin-left: 4.8em;
+    margin-top: 2em;
+  }
+  
+  .register-form a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .register-image {
+    flex: 1;
+    max-width: 45%;
+  }
+  
+  .register-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .checkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+  .checkbox input{
+    color: #000000;
+  }
+
+  
+  @media (max-width: 768px) {
+    .register-page{
+      width: 100%;
+      height: auto;
+      background-image:none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-page p{
+      font-size: 0.8em;
+    }
+    .register-page h1{
+      font-size: 2.6em;
+      text-align: center;
+      margin: 0.5em 0;
+    }
+    .register-form{
+      height: auto;
+      padding: 2em;
+      display: flex;
+      justify-content: center;
+      margin-right: 18px;
+    }
+    .register-form label{
+      font-size: 0.8em;
+    }
+    .checkbox label{
+      font-size: 0.8em;
+    }
+  }
