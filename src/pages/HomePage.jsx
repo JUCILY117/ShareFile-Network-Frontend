@@ -45,12 +45,6 @@ function HomePage() {
   const extractFileName = (filename) => {
     return filename.split('-').slice(1).join('-');
   };
-
-  useEffect(() => {
-    if (!user) {
-      navigate('/login');
-    }
-  }, [user, navigate]);
  
   //thumbnail logic
   useEffect(() => {
@@ -203,11 +197,6 @@ function HomePage() {
     window.open(mailtoLink, '_blank');
   };
   
-  
-
-  
-  
-
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
@@ -244,7 +233,7 @@ function HomePage() {
     files.forEach(file => {
       formData.append('files', file);
     });
-
+  
     try {
       const response = await axios.post(`${apiBaseUrl}/api/files/upload`, formData, {
         headers: {
@@ -252,17 +241,18 @@ function HomePage() {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
-
+  
       const uploadedFiles = response.data.map(file => ({
         ...file,
-        fileUrl: `${apiBaseUrl}/uploads/${file.filename}`
+        fileUrl: file.cloudinaryUrl || file.filepath,
       }));
-
+  
       setFiles(prevFiles => [...prevFiles, ...uploadedFiles]);
     } catch (error) {
       console.error('File upload failed:', error);
     }
   };
+  
 
   const handleFileUpload = (event) => {
     const uploadedFiles = Array.from(event.target.files);
@@ -334,7 +324,7 @@ function HomePage() {
 
   useEffect(() => {
     const fetchFiles = async (page = 1) => {
-      if (!user || !localStorage.getItem('token')) {
+      if (!localStorage.getItem('token')) {
         console.error('No user token available');
         return;
       }
@@ -349,10 +339,10 @@ function HomePage() {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
-  
+
         const filesWithUrls = response.data.files.map(file => ({
           ...file,
-          fileUrl: `${apiBaseUrl}/uploads/${file.filename}`
+          fileUrl: file.cloudinaryUrl || file.filepath,
         }));
   
         if (view === 'trash') {
@@ -369,13 +359,11 @@ function HomePage() {
     };
   
     fetchFiles(currentPage);
-  }, [user, view, currentPage]);
-  
-  
+  }, [user, view, currentPage]);  
   
   useEffect(() => {
     const fetchFolders = async () => {
-      if (!user || !localStorage.getItem('token')) {
+      if (!localStorage.getItem('token')) {
         console.error('No user token available');
         return;
       }
@@ -454,7 +442,7 @@ useEffect(() => {
       const files = response.data.files || [];
       const filesWithUrls = files.map(file => ({
         ...file,
-        fileUrl: `${apiBaseUrl}/uploads/${file.filename}`
+        fileUrl: file.cloudinaryUrl || file.filepath,
       }));
 
       setTrashFiles(filesWithUrls);
@@ -469,8 +457,6 @@ useEffect(() => {
     fetchTrashFiles(currentPageTrash);
   }
 }, [user, view, currentPageTrash, pageSizeTrash]);
-
-
 
 //delete permanently
 const handlePermanentlyDelete = async (fileId) => {

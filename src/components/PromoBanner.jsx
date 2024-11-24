@@ -28,7 +28,7 @@ const PromoBanner = () => {
       <p className="banner-text">
         Introducing <strong className='teams-text'>TeamsFile Network</strong> — Our newest addition to your workspace.
       </p>
-      <a href="https://teamsfilenetwork.netlify.app" target="_blank" className="cta-button">Explore Now</a>
+      <a href="https://teamsharenetwork.netlify.app" target="_blank" className="cta-button">Explore Now</a>
     </div>
   );
 };
